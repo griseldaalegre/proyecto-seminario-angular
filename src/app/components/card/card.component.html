@@ -1,0 +1,29 @@
+@for (pet of arrPets; track pet ){
+<div class="card" style="width: 18rem;">
+    <img [src]="pet.img" class="card-img-top" alt="{{pet.name}}">
+    <div class="card-body">
+        <h5 class="card-title"> {{pet.name}}</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        -->
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Edad: {{pet.age}}</li>
+        <li class="list-group-item">Raza: {{pet.breed}}</li>
+        <li class="list-group-item">Fecha de nacimiento: {{pet.dateOfBirth}}</li>
+        <button type="button" class="btn me-md-2 btn-secondary" (click)=saveFovorite(pet)> {{textButtonSave}} <svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+            </svg>
+        </button>
+
+
+    </ul>
+    <div class="card-body">
+        <p class="card-text" *ngIf="showMore">¡Hola! Soy Chicho, un perrito mestizo de 2 años; soy muy bueno, me porto
+            bien y busco un hogar lleno de amor.</p>
+
+        <a href="#" class="btn btn-primary" (click)="toggleShowMore()">{{textButton}}</a>
+    </div>
+</div>
+}
