@@ -1,9 +1,9 @@
 export interface Pet {
     name: string;
-    age: number;
-    breed: string;
-    dateOfBirth : string;
+    age: string;
+    gender: string;
     img: string;
     favorite: boolean;
+    history: string;
   } 
   

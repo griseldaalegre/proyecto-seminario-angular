@@ -1,5 +1,5 @@
 <div class="container-favorites">
     @for(pet of favoriteList$ |async; track pet){
-        <rp-card-favorite  [pet]="pet" ></rp-card-favorite>
+    <rp-card-favorite [pet]="pet"></rp-card-favorite>
     }
 </div>

@@ -2,13 +2,11 @@
     <img [src]="pet?.img" class="card-img-top" alt="{{pet?.name}}">
     <div class="card-body">
         <h5 class="card-title"> {{pet?.name}}</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        -->
     </div>
+
     <ul class="list-group list-group-flush">
         <li class="list-group-item">Edad: {{pet?.age}}</li>
-        <li class="list-group-item">Raza: {{pet?.breed}}</li>
-        <li class="list-group-item">Fecha de nacimiento: {{pet?.dateOfBirth}}</li>
+        <li class="list-group-item">Genero: {{pet?.gender}}</li>
         <button type="button" class="btn me-md-2 btn-secondary"> {{pet?.favorite ? "Quitar"
             : "Guardar"}} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-heart-fill" viewBox="0 0 16 16">
@@ -16,12 +14,9 @@
             </svg>
         </button>
 
-
     </ul>
     <div class="card-body">
-        <p class="card-text" *ngIf="showMore">¡Hola! Soy Chicho, un perrito mestizo de 2 años; soy muy bueno, me porto
-            bien y busco un hogar lleno de amor.</p>
-
+        <div class="card-text" *ngIf="showMore" [innerHTML]="pet?.history"></div>
         <button class="btn btn-primary" (click)="toggleShowMore(pet!)">{{textButton}}</button>
     </div>
 </div>

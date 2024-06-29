@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Refugio Patitas';
 
-  constructor(){}
+  constructor() { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
   }
 }

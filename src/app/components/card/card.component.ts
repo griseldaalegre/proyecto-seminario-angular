@@ -10,23 +10,26 @@ import { Pet } from '../models/Pet';
 export class CardComponent {
 
   showMore: boolean = false;
-  save: boolean = false;
   textButton: string = "Ver historia";
   textButtonSave: string = "Guardar";
+
   @Output() changePet = new EventEmitter();
-  @Output() changeDeletePet = new EventEmitter();
 
   constructor() { }
 
   @Input()
-  pet: Pet | undefined; //preguntar si esta bien hacer un arreglo vacio
-
-
+  pet: Pet | undefined;
 
   toggleShowMore(pet: Pet) {
-    // alert("se toco a chicho " + pet.name)
     this.showMore = !this.showMore;
     this.textButton = this.showMore ? "Ocultar historia" : "Ver historia";
+  }
+
+  toggleFavorite(): void {
+    if (this.pet?.favorite) {
+      this.pet.favorite = !this.pet.favorite;
+      this.textButtonSave = this.showMore ? "Quitar" : "Guardar";
+    }
   }
 
 }

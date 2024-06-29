@@ -14,14 +14,16 @@ export class PetCartService {
     let item: Pet | undefined = this._favoriteList.find((pet1) => pet1.name === pet.name);
     if (!item) {
       this._favoriteList.push({ ...pet });
-      console.log("entro al if: " + this._favoriteList.length);
-      console.log(this.favoriteList);
+
+      alert("entro al if: " + this._favoriteList.length);
+      pet.favorite = true;
     } else {
       this.deleteToCart(pet);
+      pet.favorite = false;
     }
     this.favoriteList.next(this._favoriteList);
   }
-  
+
   //ACOMODAR ESTE CODIGO
   deleteToCart(pet: Pet) {
     let index = this._favoriteList.findIndex((pet1) => pet1.name === pet.name);

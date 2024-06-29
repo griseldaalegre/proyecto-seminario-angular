@@ -1,9 +1,48 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Pet } from '../models/Pet';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetDataService {
+  pets: Pet[] = [];
 
-  constructor() { }
+  cantidad = 6;
+
+  constructor(private http: HttpClient) { }
+
+  public getAll(): Observable<Pet[]> {
+    console.log(this.pets)
+    if (this.pets.length <= 0) {
+      this.getPetFromAPI().subscribe(
+        response => {
+          for (let index = 0; index < this.cantidad; index++) {
+
+            let pet: Pet = {
+              name: response.data[index].nombre,
+              age: response.data[index].edad,
+              gender: response.data[index].genero,
+              img: response.data[index].imagen,
+              favorite: false,
+              history: response.data[index].desc_adicional,
+            }
+
+            this.pets.push(pet);
+
+          }
+        }
+      )
+    }
+
+
+    return of(this.pets); //devuelve un observable de la respuesta
+  }
+
+  private URL = 'https://huachitos.cl/api/animales/tipo/perro';
+
+  getPetFromAPI(): Observable<any> {
+    return this.http.get<any>(this.URL);
+  }
 }

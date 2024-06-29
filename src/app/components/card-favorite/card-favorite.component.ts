@@ -11,10 +11,9 @@ export class CardFavoriteComponent {
   @Input() pet: Pet | undefined;
 
 
-  constructor(private cartService: PetCartService) { } // inyecto el servicio
+  constructor(private cartService: PetCartService) { } 
 
   deleteToCart(pet: any) { //uso el delete del servicio-preguntar
-    alert("Entre al delete de favCard");
     this.cartService.deleteToCart(pet); // llamo al delete servicio con la mascota
   }
 }
