@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pet } from '../models/Pet';
 
 
@@ -9,49 +9,25 @@ import { Pet } from '../models/Pet';
 })
 export class CardComponent {
 
-  arrPets: Pet[] = [
-    {
-      name: 'Chicho',
-      age: 1,
-      breed: 'Mestizo',
-      dateOfBirth: '18/05/23',
-      img: 'assets/img/img-card.jpeg',
-      favorite: false
-    },
-    {
-      name: 'Chicho',
-      age: 2,
-      breed: 'Mestizo',
-      dateOfBirth: '18/05/23',
-      img: 'assets/img/img-card.jpeg',
-      favorite: false
-    },
-    {
-      name: 'Chicho',
-      age: 2,
-      breed: 'Mestizo',
-      dateOfBirth: '18/05/23',
-      img: 'assets/img/img-card.jpeg',
-      favorite: false
-    }
-
-  ]
-
   showMore: boolean = false;
   save: boolean = false;
   textButton: string = "Ver historia";
   textButtonSave: string = "Guardar";
+  @Output() changePet = new EventEmitter();
+  @Output() changeDeletePet = new EventEmitter();
+
   constructor() { }
 
-  toggleShowMore() {
+  @Input()
+  pet: Pet | undefined; //preguntar si esta bien hacer un arreglo vacio
+
+
+
+  toggleShowMore(pet: Pet) {
+    // alert("se toco a chicho " + pet.name)
     this.showMore = !this.showMore;
     this.textButton = this.showMore ? "Ocultar historia" : "Ver historia";
   }
 
-  saveFovorite (pet: Pet ): void {
-    this.save = !this.save;
-    console.log(pet);
-    this.textButtonSave = this.save ? "Favorito" : "Guardar";
-  }
 }
 

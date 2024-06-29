@@ -1,10 +1,11 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RefugioPatitasAdoptComponent } from './components/refugio-patitas-adopt/refugio-patitas-adopt.component';
 
 const routes: Routes = [
-  {    path: "",
-    redirectTo: "adopt",
+  {
+    path: "",
+    redirectTo: "home",
     pathMatch: "full"
   },
   {
