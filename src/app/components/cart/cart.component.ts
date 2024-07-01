@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class CartComponent implements OnInit {
 
-  //declaro un Observable
   favoriteList$: Observable<Pet[]>;
 
   constructor(private cart: PetCartService) {

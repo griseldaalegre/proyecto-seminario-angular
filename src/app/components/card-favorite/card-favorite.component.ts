@@ -13,8 +13,8 @@ export class CardFavoriteComponent {
 
   constructor(private cartService: PetCartService) { } 
 
-  deleteToCart(pet: any) { //uso el delete del servicio-preguntar
-    this.cartService.deleteToCart(pet); // llamo al delete servicio con la mascota
+ deleteToCart(pet: Pet) { 
+    this.cartService.deleteToCart(pet); 
   }
 }
 

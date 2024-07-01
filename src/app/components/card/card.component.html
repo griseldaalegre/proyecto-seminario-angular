@@ -1,22 +1,21 @@
-<div class="card" style="width: 18rem;">
-    <img [src]="pet?.img" class="card-img-top" alt="{{pet?.name}}">
+<div class="card card-custom" style="width: 18rem; margin-bottom: 1rem;">
+    <img [src]="pet?.img" class="card-img-top" alt="{{pet?.name}}" style="max-width: 100%; height: auto; border-radius: 0.5rem; padding: 0.5rem;">
     <div class="card-body">
-        <h5 class="card-title"> {{pet?.name}}</h5>
+        <h5 class="card-title">{{pet?.name}}</h5>
     </div>
-
     <ul class="list-group list-group-flush">
         <li class="list-group-item">Edad: {{pet?.age}}</li>
-        <li class="list-group-item">Genero: {{pet?.gender}}</li>
-        <button type="button" class="btn me-md-2 btn-secondary"> {{pet?.favorite ? "Quitar"
-            : "Guardar"}} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-            </svg>
-        </button>
-
+        <li class="list-group-item">Género: {{pet?.gender}}</li>
     </ul>
-    <div class="card-body">
+    <div class="card-body d-flex flex-column align-items-start">
+        <div class="btn-container">
+<button type="button" class="btn me-md-2 btn-secondary" (click)="toggleFavorite()"> {{pet?.favorite ? "Quitar": "Guardar"}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                </svg>
+            </button>
+            <button class="btn btn-primary btn-sm" (click)="toggleShowMore()">{{textButton}}</button>
+        </div>
         <div class="card-text" *ngIf="showMore" [innerHTML]="pet?.history"></div>
-        <button class="btn btn-primary" (click)="toggleShowMore(pet!)">{{textButton}}</button>
     </div>
 </div>

@@ -7,11 +7,17 @@ import { Pet } from '../models/Pet';
   providedIn: 'root'
 })
 export class PetDataService {
-  pets: Pet[] = [];
 
+  private URL = 'https://huachitos.cl/api/animales/tipo/perro';
+  pets: Pet[] = [];
   cantidad = 6;
 
   constructor(private http: HttpClient) { }
+
+
+  getPetFromAPI(): Observable<any> {
+    return this.http.get<any>(this.URL);
+  }
 
   public getAll(): Observable<Pet[]> {
     console.log(this.pets)
@@ -30,19 +36,25 @@ export class PetDataService {
             }
 
             this.pets.push(pet);
-
           }
         }
       )
     }
-
-
-    return of(this.pets); //devuelve un observable de la respuesta
+    return of(this.pets);
   }
 
-  private URL = 'https://huachitos.cl/api/animales/tipo/perro';
-
-  getPetFromAPI(): Observable<any> {
-    return this.http.get<any>(this.URL);
+  removeFavorite(pet: Pet) {
+    let index = this.pets.findIndex((pet1) => pet1.name === pet.name);
+    if (index !== -1) {
+      this.pets[index].favorite = false;
+    }
   }
+
+  public updatePet(pet: Pet) {
+
+    let index = this.pets.findIndex((pet1) => pet1.name === pet.name);
+    this.pets[index].favorite = false;
+
+  }
+
 }

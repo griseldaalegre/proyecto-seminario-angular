@@ -1,4 +1,5 @@
 <div class="container-favorites">
+    <h1>Guardados en Favorito</h1>
     @for(pet of favoriteList$ |async; track pet){
     <rp-card-favorite [pet]="pet"></rp-card-favorite>
     }

@@ -1,9 +1,15 @@
-<div class="d-flex flex-column " style="width: 8rem;">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{pet?.name}} <button type="button" class="btn me-md-2 btn-secondary"
-                (click)="deleteToCart(pet)">quitar</button>
-        </li>
-        <li class="list-group-item"></li>
-        <li class="list-group-item"> <img [src]="pet?.img" class="card-img-top" alt="{{pet?.name}}"></li>
-    </ul>
+<div class="card-custom d-flex align-items-center">
+    <!-- Imagen a la izquierda -->
+    <div class="flex-shrink-0" style="padding: 0.5rem;">
+        <img [src]="pet?.img" class="img-fluid" alt="{{pet?.name}}">
+    </div>
+    <!-- Datos a la derecha -->
+    <div class="ms-3" style="padding: 0.5rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{pet?.name}}</li>
+            <li class="list-group-item">{{pet?.gender}}</li>
+            <li class="list-group-item">{{pet?.age}}</li>
+        </ul>
+        <button class="btn btn-primary btn-sm" (click)="deleteToCart(pet!)">Eliminar</button>
+    </div>
 </div>

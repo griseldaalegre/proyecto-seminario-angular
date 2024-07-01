@@ -7,6 +7,8 @@ import { CardFavoriteComponent } from './components/card-favorite/card-favorite.
 import { RefugioPatitasAdoptComponent } from './components/refugio-patitas-adopt/refugio-patitas-adopt.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
+import { RefugioPatitasHomeComponent } from './components/refugio-patitas-home/refugio-patitas-home.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     CardFavoriteComponent,
     RefugioPatitasAdoptComponent,
     CartComponent,
+    CarouselHomeComponent,
+    RefugioPatitasHomeComponent,
   ],
   imports: [
     BrowserModule,
