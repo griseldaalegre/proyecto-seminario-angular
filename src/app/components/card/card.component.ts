@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pet } from '../models/Pet';
 import { PetCartService } from '../services/pet-cart.service';
 
-
 @Component({
   selector: 'rp-card',
   templateUrl: './card.component.html',
@@ -16,7 +15,7 @@ export class CardComponent {
 
   @Output() changePet = new EventEmitter();
 
-  constructor(private petCartService: PetCartService ) { }
+  constructor(private petCartService: PetCartService) { }
 
   @Input()
   pet: Pet | undefined;
@@ -27,11 +26,8 @@ export class CardComponent {
   }
 
   toggleFavorite(): void {
-
     this.pet!.favorite = !this.pet!.favorite;
     this.petCartService.addToCart(this.pet!)
-
- 
-}
+  }
 }
 

@@ -10,7 +10,7 @@ export class PetDataService {
 
   private URL = 'https://huachitos.cl/api/animales/tipo/perro';
   pets: Pet[] = [];
-  cantidad = 6;
+  cantidad = 8;
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,6 @@ export class PetDataService {
   }
 
   public getAll(): Observable<Pet[]> {
-    console.log(this.pets)
     if (this.pets.length <= 0) {
       this.getPetFromAPI().subscribe(
         response => {
@@ -34,7 +33,6 @@ export class PetDataService {
               favorite: false,
               history: response.data[index].desc_adicional,
             }
-
             this.pets.push(pet);
           }
         }
@@ -51,10 +49,8 @@ export class PetDataService {
   }
 
   public updatePet(pet: Pet) {
-
     let index = this.pets.findIndex((pet1) => pet1.name === pet.name);
     this.pets[index].favorite = false;
-
   }
 
 }

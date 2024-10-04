@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
-import { Pet } from '../models/Pet';
-import { PetCartService } from '../services/pet-cart.service';
-import { PetDataService } from '../services/pet-data.service';
+import { Pet } from '../../models/Pet';
+import { PetCartService } from '../../services/pet-cart.service';
+import { PetDataService } from '../../services/pet-data.service';
 
 @Component({
   selector: 'refugio-patitas-adopt',

@@ -1,12 +1,41 @@
-   /* El contenedor del carrusel ocupa el 100% del ancho */
-   .carousel-container {
-    width: 100%;
-    overflow: hidden;
-  }
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
 
-  /* Ajuste de la altura de las imágenes para mantener la relación de aspecto */
-  .carousel-inner img {
-    width: 100%;
-    height: 300px; /* Ajusta la altura según tus necesidades */
-    object-fit: cover; /* Para que las imágenes se adapten sin deformarse */
-  }
+.carousel-inner img {
+  width: 100%;
+  height: 450px;
+  object-fit: none;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.left-text {
+  position: absolute;
+  font-size: 2rem;
+  padding: 10px;
+  left: 5%;
+}
+
+.right-text {
+  position: absolute;
+  bottom: 0%;
+  right: 5%;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

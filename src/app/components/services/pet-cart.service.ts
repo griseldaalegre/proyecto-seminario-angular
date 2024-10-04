@@ -17,7 +17,6 @@ export class PetCartService {
     let item: Pet | undefined = this._favoriteList.find((pet1) => pet1.name === pet.name);
     if (!item) {
       this._favoriteList.push({ ...pet });
-      console.log("funcion add: " + this._favoriteList);
     } else {
       this.deleteToCart(pet);
     }
@@ -26,14 +25,14 @@ export class PetCartService {
 
   deleteToCart(pet: Pet) {
     let index = this._favoriteList.findIndex((pet1) => pet1.name === pet.name);
-    if (index !== -1) {  
+    if (index !== -1) {
       this._favoriteList.splice(index, 1);
-      this.petDataService.updatePet(pet); 
-      console.log("funcion delete: " + this._favoriteList.length);
-      console.log(this._favoriteList);
+      this.petDataService.updatePet(pet);
+      this.favoriteList.next(this._favoriteList); 
     } else {
       console.warn("no válido para eliminar.");
     }
   }
+
 
 }

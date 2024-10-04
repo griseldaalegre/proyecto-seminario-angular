@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="container">
+        <div class="d-flex justify-content-center container p-4">
+            <h1>{{text}}</h1>
+          </div>
+    </div>
+    <div class="container d-flex justify-content-around flex-wrap">
+        @for(pet of favoriteList$ |async; track pet){
+        <rp-card-favorite [pet]="pet"></rp-card-favorite>
+        }
+    </div>
+</div>

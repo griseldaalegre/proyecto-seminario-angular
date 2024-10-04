@@ -10,11 +10,10 @@ import { PetCartService } from '../services/pet-cart.service';
 export class CardFavoriteComponent {
   @Input() pet: Pet | undefined;
 
+  constructor(private cartService: PetCartService) { }
 
-  constructor(private cartService: PetCartService) { } 
-
- deleteToCart(pet: Pet) { 
-    this.cartService.deleteToCart(pet); 
+  deleteToCart(pet: Pet) {
+    this.cartService.deleteToCart(pet);
   }
 }
 

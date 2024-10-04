@@ -1,15 +1,16 @@
-<div class="card-custom d-flex align-items-center">
-    <!-- Imagen a la izquierda -->
+<div class="card-custom d-flex align-items-center" style="margin-bottom: 1rem; width: 250px; height: 300px;">
     <div class="flex-shrink-0" style="padding: 0.5rem;">
-        <img [src]="pet?.img" class="img-fluid" alt="{{pet?.name}}">
+        <img [src]="pet?.img" class="img-fluid" alt="{{pet?.name}}"
+            style="width: 80px; height: 80px; object-fit: cover;">
     </div>
-    <!-- Datos a la derecha -->
-    <div class="ms-3" style="padding: 0.5rem;">
+    <div class="ms-3" style="padding: 0.5rem; flex-grow: 1;">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{pet?.name}}</li>
-            <li class="list-group-item">{{pet?.gender}}</li>
-            <li class="list-group-item">{{pet?.age}}</li>
+            <li class="list-group-item text-center">{{pet?.name}}</li>
+            <li class="list-group-item text-center">{{pet?.gender}}</li>
+            <li class="list-group-item text-center">{{pet?.age}} años</li>
         </ul>
-        <button class="btn btn-primary btn-sm" (click)="deleteToCart(pet!)">Eliminar</button>
+        <div class="d-flex justify-content-center mt-2">
+            <button class="btn btn-primary btn-sm" (click)="deleteToCart(pet!)">Eliminar</button>
+        </div>
     </div>
 </div>
